@@ -1,0 +1,59 @@
+<html ng-app = "myApp">
+<head>
+<script src = "angular.min.js"></script>
+<style>
+#d1
+{
+	background-color: #FBCCE7;
+	height: 480px;
+	width: 600px;
+	margin-left: 500px;
+	margin-top: 100px;
+}
+input:focus
+{
+	background-color: pink;
+}
+</style>
+<title>Personal Information</title>
+
+<body ng-controller="ctrl as c1" style="background-color: grey">
+<div id="d1"><br><br>
+<h2 align="center">Fill In Your Personal Details</h2>
+<br><br>
+<form ng-submit="c1.fun1()" align="center">
+<input type="text"  ng-model="c1.txtfname" placeholder="Fname" style="height: 30px; width: 200px;" required>
+
+<input type="text" ng-model="c1.txtlname" placeholder="Surname" style="height: 30px; width: 200px;" required><br><br>
+
+<input type="tel" ng-model="c1.txttel" placeholder="Mobile number" pattern="[+][0-9]{2}-[0-9]{10}" title="Mobile number start with +91-" style="height: 30px; width: 200px;" required><br><br>
+
+<input type="email" ng-model="c1.txtemail" placeholder="example@gmail.com" pattern="(?=.*\@)" style="height: 30px; width: 200px;"  required><br><br>
+
+<input type="password" ng-model="c1.txtpassword" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  style="height: 30px; width: 200px;" title="Must contain at least one uppercase character and one lowercase and at least one numeric character, at least one special character like !@#$%^&*() and at least 8  characters" required><br><br>
+   
+Birthday<input type="date" ng-model="c1.txtdate" placeholder="yyyy/mm/dd" style="height: 30px; width: 150px;"><br><br>
+
+<input type="radio" value="male" ng-model="c1.txtgender" >Female</input>
+<input type="radio" value="female" ng-model="c1.txtgender" >Male</input><br><br>
+
+<input type="submit" value="Create Account" style="height: 30px; width: 200px; background-color: grey;">
+</form>
+</div>
+
+<script>
+var app = angular.module('myApp',[]);
+app.controller('ctrl',function()
+{
+	this.fun1 = function()
+	{   
+		var obj = {"txtfname":this.txtfname,"txtlname":this.txtlname,"txttel":this.txttel,"txtemail":this.txtemail,"txtpassword":this.txtpassword,"txtdate":this.txtdate,"txtgender":this.txtgender,};
+		console.log(obj);
+	}
+});
+</script>
+</body>
+</head>
+<html>
+
+

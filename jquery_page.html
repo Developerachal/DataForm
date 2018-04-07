@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="jquery-1.11.3.js"></script>
+</head>
+<body align="center">
+<h2>Display all</h2>
+<input type="button" id="btn" value="display"><br><br>
+	<table id="tb1" border="2px"></table>
+
+	<script>
+		$(document).ready(function()
+		{
+			$("#btn").click(function()
+			{
+				$.ajax({
+					type:'GET',
+					url:'https://jsonplaceholder.typicode.com/users​',
+					data:{},
+					success:function(data)
+					{
+						var arr=$.parseJSON(data);
+
+						for(var i=0;i<arr.length;i++)
+						{
+							$("<tr><td>"+arr[i].id+"</td><td>"+arr[i].name+"</td><td>"+arr[i].username+"</td><td>"+arr[i].email+"</td><td>"+arr[i].address+"</td><td>"+arr[i].street+"</td><td>"+arr[i].suite+"</td><td>"+arr[i].city+"</td><td>"+arr[i].zipcode+"</td><td>"+arr[i].geo+"</td><td>"+arr[i].phone+"</td><td>"+arr[i].website+"</td><td>"+arr[i].company+"</td></tr>").appendTo("#tb1");
+						}
+					}
+				})
+			})
+		})
+	</script>
+</body>
+</html>

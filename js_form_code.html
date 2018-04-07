@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#d1
+{
+	background-color:#6082B6 ;
+	height: 500px;
+	width: 600px;
+	margin-left: 500px;
+	margin-top: 100px;
+}
+input:focus
+{
+	background-color: yellow;
+}
+</style>
+<title>Personal Information</title>
+
+<body style="background-color: #FBCCE7">
+<div id="d1"><br><br>
+<h2 align="center">Fill In Your Personal Details</h2>
+<br><br>
+
+   <form name="myform" onSubmit="myfun()" align="center">
+<input type="text"  name="textfname" placeholder="Fname" style="height: 30px; width: 200px;" required>
+<input type="text" name="textlname" placeholder="Surname"  style="height: 30px; width: 200px;" required><br><br>
+<input type="tel" name="texttel" placeholder="Mobile number" pattern="[+][0-9]{2}-[0-9]{10}" title="Mobile number start with +91-" style="height: 30px; width: 200px;"  required><br><br>
+<input type="email" name="textemail" placeholder="email@gmail.com" pattern="(?=.*\@)" style="height: 30px; width: 200px;"  required><br><br>
+<input type="password" name="textpassword" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one uppercase character and one lowercase and at least one numeric character, at least one special character like !@#$%^&*() and at least 8  characters" style="height: 30px; width: 200px;"  required>
+    <br><br>
+Birthday<input type="date" placeholder="yyyy/mm/dd" name="textdate" style="height: 30px; width: 150px;"><br><br>
+<input type="radio" value="male" name="textgender">Female</input>
+<input type="radio" value="female" name="textgender">Male</input><br><br>
+<input name="Submit"  type="submit" value="Create Account" onClick="myfun()" style="height: 30px; width: 150px;">
+</form>
+</div>
+
+<script>
+var obj=myfun();
+function myfun() {
+return  {"textfname":this.textfname,"textname":this.textlname,"texttel":this.texttel,"text_email":this.textemail,"textpassword":this.         textpassword,"textdate":this.textdate,"textgender":this.textgender,"textgender":this.textgender};
+}
+console.log(obj); 
+
+</script>
+</body>
+</head>
+<html>
+
+
